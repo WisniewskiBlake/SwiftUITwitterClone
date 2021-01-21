@@ -35,7 +35,8 @@ struct ContentView: View {
                             .scaleEffect(showingMenu ? 0.9 : 1)
                             .shadow(color: self.showingMenu ? .black : .clear, radius: 20, x: 0, y: 0)
                             .disabled(showingMenu)
-                            .navigationBarItems(leading: profileImageButton, trailing: refreshButton)
+                            .navigationBarItems(leading: profileImageButton,
+                                                trailing: selectedIndex == 0 ? refreshButton : nil)
                     }.onAppear(perform: {
                         self.showingMenu = false 
                     })
