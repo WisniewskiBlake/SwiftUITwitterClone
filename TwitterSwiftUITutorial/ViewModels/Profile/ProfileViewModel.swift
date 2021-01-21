@@ -43,6 +43,7 @@ extension ProfileViewModel {
         followingRef.document(user.id).setData([:]) { _ in
             followersRef.document(currentUid).setData([:]) { _ in
                 self.user.isFollowed = true
+                self.user.stats.followers += 1
                 
                 NotificationViewModel.uploadNotification(toUid: self.user.id, type: .follow)
             }
@@ -57,6 +58,7 @@ extension ProfileViewModel {
         followingRef.document(user.id).delete { _ in
             followersRef.document(currentUid).delete { _ in
                 self.user.isFollowed = false
+                self.user.stats.followers -= 1
                 
                 NotificationViewModel.deleteNotification(toUid: self.user.id, type: .follow)
             }
