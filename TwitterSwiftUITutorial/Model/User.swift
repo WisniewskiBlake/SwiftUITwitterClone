@@ -31,6 +31,6 @@ struct User: Identifiable {
 }
 
 struct UserStats {
-    let followers: Int
-    let following: Int
+    var followers: Int
+    var following: Int
 }
