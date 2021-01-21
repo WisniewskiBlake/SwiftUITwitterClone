@@ -45,13 +45,13 @@ struct SideMenuHeaderView: View {
                 
                 HStack(spacing: 12) {
                     HStack(spacing: 4) {
-                        Text("2").bold()
+                        Text("\(user?.stats.following ?? 0)").bold()
                         Text("Following")
                             .foregroundColor(.gray)
                     }
                     
                     HStack(spacing: 4) {
-                        Text("0").bold()
+                        Text("\(user?.stats.followers ?? 0)").bold()
                         Text("Followers")
                             .foregroundColor(.gray)
                     }
