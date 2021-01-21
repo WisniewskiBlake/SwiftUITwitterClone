@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FeedView: View {
     @State var isShowingNewTweetView = false
-    @ObservedObject var viewModel = FeedViewModel()
+    @ObservedObject var viewModel: FeedViewModel
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -36,16 +36,7 @@ struct FeedView: View {
             .padding()
             .fullScreenCover(isPresented: $isShowingNewTweetView) {
                 NewTweetView(isPresented: $isShowingNewTweetView, tweet: nil)
-                    .onDisappear(perform: {
-                        viewModel.fetchTweets()
-                    })
             }
         }
-    }
-}
-
-struct FeedView_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedView()
     }
 }
