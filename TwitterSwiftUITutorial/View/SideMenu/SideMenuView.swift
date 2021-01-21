@@ -37,6 +37,7 @@ struct SideMenuView: View {
                         }
                     }
                 }
+                .navigationBarHidden(true)
             }
         }
     }
