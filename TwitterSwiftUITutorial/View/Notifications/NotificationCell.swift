@@ -33,7 +33,7 @@ struct NotificationCell: View {
                         Text(notification.userIsFollowed ? "Following" : "Follow")
                             .padding(.horizontal, 20)
                             .padding(.vertical, 8)
-                            .background(Color(.blue))
+                            .background(Color(.systemBlue))
                             .clipShape(Capsule())
                             .foregroundColor(.white)
                             .font(.system(size: 14, weight: .semibold))

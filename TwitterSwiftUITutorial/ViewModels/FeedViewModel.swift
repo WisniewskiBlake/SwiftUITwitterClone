@@ -27,13 +27,18 @@ class FeedViewModel: ObservableObject {
     
     func fetchTweets() {
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        var tweets = [Tweet]()
         COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
-            
+                        
             documents.forEach { document in
                 COLLECTION_TWEETS.document(document.documentID).getDocument { snapshot, _ in
                     guard let data = snapshot?.data() else { return }
-                    self.tweets.append(Tweet(dictionary: data))
+                    tweets.append(Tweet(dictionary: data))
+                    
+                    if tweets.count == documents.count {
+                        self.tweets = tweets.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
+                    }
                 }
             }
         }

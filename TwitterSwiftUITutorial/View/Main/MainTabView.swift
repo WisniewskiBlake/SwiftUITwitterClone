@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MainTabView: View {
     @Binding var selectedIndex: Int
+    @ObservedObject var viewModel: FeedViewModel
     
     var body: some View {
         TabView(selection: $selectedIndex) {
-            FeedView()
+            FeedView(viewModel: viewModel)
                 .onTapGesture {
                     selectedIndex = 0
                 }

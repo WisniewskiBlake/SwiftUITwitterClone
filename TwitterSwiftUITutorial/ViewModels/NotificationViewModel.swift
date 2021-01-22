@@ -74,7 +74,6 @@ class NotificationViewModel: ObservableObject {
         followNotifications.forEach { notification in
             UserService.checkIfUserIsFollowed(uid: notification.uid) { isFollowed in
                 
-                print("DEBUG: Is followed \(isFollowed)")
                 if let index = self.notifications.firstIndex(where: { $0.id == notification.id }) {
                     self.notifications[index].userIsFollowed = isFollowed
                 }
