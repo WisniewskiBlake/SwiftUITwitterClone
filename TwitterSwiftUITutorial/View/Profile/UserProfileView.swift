@@ -2,7 +2,7 @@
 //  UserProfileView.swift
 //  TwitterSwiftUITutorial
 //
-//  Created by Stephen Dowless on 11/22/20.
+//  Created by Blake Wisniewski on 12/18/1399 AP.
 //
 
 import SwiftUI
